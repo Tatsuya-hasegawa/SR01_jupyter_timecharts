@@ -13,7 +13,7 @@ library(forcats)
 options(dplyr.summarise.inform = FALSE)
 
 # Read the CSV file 
-data <- read.csv("../merged_202204-202303_noduplabel.csv")#,header=T,fileEncoding = "utf8")
+data <- read.csv("../merged_202204-202303.csv")#,header=T,fileEncoding = "utf8")
 #data <- read_csv("../merged_202204-202303.csv",locale = locale(encoding = "utf8"),col_types = cols(.default = "c"))
 
 # Convert the "date" column to Date format
