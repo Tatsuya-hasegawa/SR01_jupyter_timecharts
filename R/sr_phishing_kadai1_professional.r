@@ -1,5 +1,5 @@
 install.packages("pacman")
-pacman::p_load(tidyverse, scales, stringr)
+pacman::p_load(tidyverse, scales)
 
 # Retrieve csv files and make a data frame
 base_url <- "https://github.com/JPCERTCC/phishurl-list/raw/main/"
