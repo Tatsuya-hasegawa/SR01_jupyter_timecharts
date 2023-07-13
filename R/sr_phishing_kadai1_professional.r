@@ -1,23 +1,14 @@
-install.packages("pacman")
+#install.packages("pacman")
 pacman::p_load(tidyverse, scales)
 
 # Retrieve csv files and make a data frame
 base_url <- "https://github.com/JPCERTCC/phishurl-list/raw/main/"
-file_name <- c("2022/202204.csv",
-               "2022/202205.csv",
-               "2022/202206.csv",
-               "2022/202207.csv",
-               "2022/202208.csv",
-               "2022/202209.csv",
-               "2022/202210.csv",
-               "2022/202211.csv",
-               "2022/202212.csv",
-               "2023/202301.csv",
-               "2023/202302.csv",
-               "2023/202303.csv")
+files <- 
+  seq(ymd("2022-04-01"), ymd("2023-03-31"), by="month") |> 
+  strftime("%Y/%Y%m.csv")
 
-file_list <- str_c(base_url, file_name)
-data <- map_dfr(file_list, read_csv)
+urls <- str_c(base_url, files)
+data <- map_dfr(urls, read_csv)
 
 # Make some columns
 data_mod <- 
